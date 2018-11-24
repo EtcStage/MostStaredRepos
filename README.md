@@ -1,6 +1,7 @@
 # MostStaredRepos
-About MostStarredRepos
-MostStarredRepos is a simple android application that list the most starred repositories in github in the last 30 days
+
+About MostStarredRepos :  
+	 MostStarredRepos is a simple android application that list the most starred repositories in github in the last 30 days
 
 Installation
 	
