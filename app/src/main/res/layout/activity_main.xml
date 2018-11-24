@@ -11,11 +11,23 @@
     >
     <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
 
-
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        style="@style/toolbarStyle"
+        app:titleMarginStart="70dp"
+        android:elevation="4dp"
+        app:title="@string/toolbarTitle"
+        android:scrollbarSize="70dp"
+        app:titleTextColor="@android:color/white"
+        />
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
+        android:layout_marginTop="55dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="vertical" />
+        android:scrollbars="vertical"
+        />
 
 </RelativeLayout>

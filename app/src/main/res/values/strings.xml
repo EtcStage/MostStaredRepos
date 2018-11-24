@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MostStarredGithubRepos</string>
+    <string name="toolbarTitle">Trending Repos</string>
 </resources>
