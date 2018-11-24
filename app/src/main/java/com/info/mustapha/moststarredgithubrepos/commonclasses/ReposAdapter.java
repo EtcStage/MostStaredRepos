@@ -17,7 +17,7 @@ import com.info.mustapha.moststarredgithubrepos.models.Repository;
 public class ReposAdapter  extends RecyclerView.Adapter<ReposAdapter.RepositoryViewHolder> {
 
     private List<Repository> reposList;
-
+    OnBottomReachedListener onBottomReachedListener;
 
     public class RepositoryViewHolder extends RecyclerView.ViewHolder {
 
@@ -32,6 +32,11 @@ public class ReposAdapter  extends RecyclerView.Adapter<ReposAdapter.RepositoryV
             starCount = (TextView) view.findViewById(R.id.starsCount);
             ownerImage = (ImageView) view.findViewById(R.id.owner_img);
         }
+    }
+
+    public void setOnBottomReachedListener(OnBottomReachedListener onBottomReachedListener){
+
+        this.onBottomReachedListener = onBottomReachedListener;
     }
 
 
@@ -65,7 +70,12 @@ public class ReposAdapter  extends RecyclerView.Adapter<ReposAdapter.RepositoryV
             holder.starCount.setText(starcount+" ");
         }
 
+        //if bottom reached
+        if (position == reposList.size() - 1){
 
+            onBottomReachedListener.onBottomReached();
+
+        }
 
 
 

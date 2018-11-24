@@ -26,12 +26,14 @@ import java.util.ArrayList;
 
 import java.util.Calendar;
 import java.util.List;
+import com.info.mustapha.moststarredgithubrepos.commonclasses.OnBottomReachedListener;
 
 public class MainActivity extends AppCompatActivity {
 
     private List<Repository> reposList = new ArrayList<>();
     private RecyclerView recyclerView;
     private ReposAdapter repositoriesAdapter;
+    private int page = 1;
 
 
     @Override
@@ -48,6 +50,18 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(repositoriesAdapter);
+        final MainActivity activity = this;
+        repositoriesAdapter.setOnBottomReachedListener(new OnBottomReachedListener() {
+            @Override
+            public void onBottomReached() {
+                Toast.makeText(MainActivity.this, "Load New Data ...  page"+(++activity.page), Toast.LENGTH_SHORT).show();
+                //activity.page++;
+                activity.loadReposData();
+
+
+
+            }
+        });
 
 
         loadReposData();
@@ -63,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         String dateBefore30Days = calendar.get(Calendar.YEAR)+"-"+month+"-"+calendar.get(Calendar.DAY_OF_MONTH);
 
        //github repositories url
-        String url = "https://api.github.com/search/repositories?q=created:>"+dateBefore30Days+"&sort=stars&order=desc";
+        String url = "https://api.github.com/search/repositories?q=created:>"+dateBefore30Days+"&sort=stars&order=desc&page="+this.page;
 
         //build request for getting repositories data
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
