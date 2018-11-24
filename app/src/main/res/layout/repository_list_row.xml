@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/name"
+        android:text="name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+
+        android:textSize="16dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/description"
+        android:text="description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:id="@+id/owner_img"
+            android:src="@drawable/ic_image_black_24dp"
+            android:layout_width="@dimen/img_owner_dim"
+            android:layout_height="@dimen/img_owner_dim"
+
+            />
+
+        <TextView
+            android:id="@+id/owner"
+            android:layout_marginTop="4dp"
+            android:layout_width="0dp"
+            android:layout_weight=".30"
+            android:layout_height="wrap_content"
+            android:text="owner"
+            android:layout_alignParentRight="true"
+            />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight=".30"
+            android:layout_height="wrap_content"></View>
+        <TextView
+            android:id="@+id/starsCount"
+            android:layout_width="0dp"
+            android:layout_weight=".10"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="num"
+
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight=".05"
+
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_star_gold_24dp"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
